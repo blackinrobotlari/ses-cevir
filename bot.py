@@ -20,7 +20,7 @@ db = {}
 @bot.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            "**Heya, I am a Whisper Bot!**",
+            "**Heya, Sözün var di mənə 🙈**",
             buttons=[
                 [Button.switch_inline("Go Inline", query="")]
                 ]
@@ -34,8 +34,8 @@ async def die(event):
     me = (await bot.get_me()).username
     dn = event.builder.article(
             title="It's a whisper bot!",
-            description="It's a whisper Bot!\n(c) Reeshuxd",
-            text=f"**It's a whisper bot**\n`@{me} wspr UserID|Message`\n**(c) Reeshuxd**",
+            description="Sözün var di mənə gizlin diyim o birinə\n(c) Reeshuxd",
+            text=f"**Gizli söz çağıra bilən botam**\n`@{me} istədiyniz adamın adi| Mesajınız`\n**(c) Reeshuxd**",
             buttons=[
                 [Button.switch_inline(" Go Inline ", query="wspr ")]
                 ]
@@ -74,7 +74,7 @@ async def inline(event):
 A Whisper Has Been Sent
 To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!
-**Note:** __Only {ui.user.first_name} can open this!__
+**Note:** __Yanlız {ui.user.first_name} Bu Qaaş Oxuya Bilər😒__
     """
     dn = event.builder.article(
             title="Its a secret message! Sssh",
@@ -97,12 +97,12 @@ async def ws(event):
     lol = [int(db["self"])]
     lol.append(user)
     if event.sender.id not in lol:
-        await event.answer("🔐 This message is not for you!", alert=True)
+        await event.answer("Ay Xaam Gə Mesajını Oxu 😒", alert=True)
         return
     msg = db["msg"]
     if msg == []:
         await event.anwswer(
-                "Oops!\nIt's looks like message got deleted from my server!", alert=True)
+                ".\nYeri Əəəə 😒", alert=True)
         return
     await event.answer(msg, alert=True)
 
